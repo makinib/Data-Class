@@ -1,0 +1,88 @@
+<style type="text/css">
+
+  body {
+       width:760px;
+      margin:40px auto;
+      font-family: georgia, sans;
+  }
+
+  h1 {
+      border-bottom:1px so id #dedede;
+      margin-bottom:20px;
+      padding-bottom:20px;
+  }
+  .selected {
+    opacity: 0.2;
+  }
+  </style>
+
+
+  <h1>Starter interactive</h1>
+
+  <p id="total">This is where HTML will go.</p>
+
+
+  <img class="selected" id="alkaseltzer" data-dose="2000" src="https://dl.dropboxusercontent.com/u/89321094/Data/ProPublica/alkaseltzer.jpg">
+  <img class="selected" id="anacin" data-dose="4000" src="https://dl.dropboxusercontent.com/u/89321094/Data/ProPublica/anacin.jpg">
+  <img class="selected" id="childrenstylenol" data-dose="800" src="https://dl.dropboxusercontent.com/u/89321094/Data/ProPublica/childrenstylenol.jpg">
+  <img class="selected" id="coricidin" data-dose="3900" src="https://dl.dropboxusercontent.com/u/89321094/Data/ProPublica/coricidin.jpg">
+  <img class="selected" id="dayquil" data-dose="1300" src="https://dl.dropboxusercontent.com/u/89321094/Data/ProPublica/dayquil.jpg">
+  <img class="selected" id="dimetapp" data-dose="800" src="https://dl.dropboxusercontent.com/u/89321094/Data/ProPublica/dimetapp.jpg">
+   <img class="selected" id="excedrin" data-dose="2000" src="https://dl.dropboxusercontent.com/u/89321094/Data/ProPublica/excedrin.jpg">
+  <img class="selected" id="hydrocodone" data-dose="3900" src="https://dl.dropboxusercontent.com/u/89321094/Data/ProPublica/hydrocodone.jpg">
+  <img class="selected" id="nyquil" data-dose="2600" src="https://dl.dropboxusercontent.com/u/89321094/Data/ProPublica/nyquil.jpg">
+  <img class="selected" id="oxycodone" data-dose="3900" src="https://dl.dropboxusercontent.com/u/89321094/Data/ProPublica/oxycodone.jpg">
+  <img class="selected" id="panadol" data-dose="800" src="https://dl.dropboxusercontent.com/u/89321094/Data/ProPublica/panadol.jpg">
+  <img class="selected" id="percoset" data-dose="3900" src="https://dl.dropboxusercontent.com/u/89321094/Data/ProPublica/percoset.jpg">
+  <img class="selected" id="robitussin" data-dose="3840" src="https://dl.dropboxusercontent.com/u/89321094/Data/ProPublica/robitussin.jpg">
+  <img class="selected" id="sudafed" data-dose="3250" src="https://dl.dropboxusercontent.com/u/89321094/Data/ProPublica/sudafed.jpg">
+  <img class="selected" id="theraflu" data-dose="3900" src="https://dl.dropboxusercontent.com/u/89321094/Data/ProPublica/theraflu.jpg">
+  <img class="selected" id="tylenolextrastrength" data-dose="3000" src="https://dl.dropboxusercontent.com/u/89321094/Data/ProPublica/tylenolextrastrngth.jpg">
+  <img class="selected" id="tylenolwcodeine" data-dose="4000" src="https://dl.dropboxusercontent.com/u/89321094/Data/ProPublica/tylenolwcodeine.jpg">
+  <img class="selected" id="ultracet" data-dose="2600" src="https://dl.dropboxusercontent.com/u/89321094/Data/ProPublica/ultracet.jpg">
+  <img class="selected" id="vicodin" data-dose="3960" src="https://dl.dropboxusercontent.com/u/89321094/Data/ProPublica/vicodin.jpg">
+  <img class="selected" id="zicam" data-dose="3900" src="https://dl.dropboxusercontent.com/u/89321094/Data/ProPublica/zicam.jpg">
+
+<script type="text/javascript" src="https://dl.dropboxusercontent.com/u/89321094/Data/ProPublica/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript">
+   $=jQuery;
+   var total=0;
+   var totaldosage = 0;
+   var maxdaily = 4000;
+   var liverdamage = 8000;
+   var death = 16000;
+   //click stuff
+
+    $( "img").click(function() {
+      var thisdose = $( this ).data('dose'); 
+      console.log (totaldosage);
+
+if ($ ( this ).hasClass ("selected")) {
+ totaldosage = totaldosage + thisdose; 
+}else{
+      totaldosage = totaldosage - thisdose; 
+};
+
+      console.log (totaldosage);
+      
+
+      $( this ).toggleClass ( "selected" );
+
+      if (totaldosage > 4000) {
+        console.log ("You have exceeded the maximum daily recommended intake")
+
+      };
+
+      if (totaldosage > 8000) {
+        console.log ("You have liver damage")
+      };
+
+      if (totaldosage > 16000) {
+        console.log ("You are dead")
+      };
+    if ("selected")
+      console.log 
+    
+
+});
+  </script>
