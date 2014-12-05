@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+
+		body {
+			width: 970px;
+			margin: auto;
+		}
+		h2 {
+			text-align: center;
+			font-family: Georgia;
+		}
+		h4 {
+			text-align: center;
+			font-family: Georgia;
+		}
+		#now {
+			background-color:#99FFCC;
+			border-style: solid;
+			font-family:Georgia;
+			font-size:14px;
+		}
+		#population {
+			background-color:#99CCFF;
+			border-style: solid;
+			font-family:Georgia;
+			font-size:14px;
+		}
+		.tables {
+			width: 75%;
+			margin-left: 12.5%;
+			display: inline-block;
+		}
+		.tables table{
+			float: left;
+			width: 50%;
+		}
+		.words {
+			width: 100%;
+			display: inline-block;
+		}
+		tr:hover {
+		  background-color: lightyellow;
+		}
+		.special {
+			background-color: lightyellow;
+		}
+
+	</style>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+
+</head>
+
+
+<body>
+	
+	<p><h2>Which States Would Have the Most Unaccompanied Child Migrants if We Were Like France?</h2></p>
+	<p><h4>By <a href="https://twitter.com/makinibrice">Makini Brice</a></h4></p>
+	<p><h4>December 11, 2014</h4></p>
+	
+	<div class = "tables">
+
+	<table style id="now">
+		<tr>
+			<th>Where Are Unaccompanied Minors Now?</th>
+		</tr>
+		<tr class = "texas">
+			<td>Texas</td>
+			<td>6,272</td>
+		</tr>
+		<tr class = "ny">
+			<td>New York</td>
+			<td>5,033</td>
+		</tr>
+		<tr class = "ca">
+			<td>California</td>
+			<td>4,905</td>
+		</tr>
+		<tr class="fl">
+			<td>Florida</td>
+			<td>4,502</td>
+		</tr>
+		<tr class="va">
+			<td>Virginia</td>
+			<td>3,319</td>
+		</tr>
+		<tr class="md">
+			<td>Maryland</td>
+			<td>3,301</td>
+		</tr>
+		<tr class="nj">
+			<td>New Jersey</td>
+			<td>2,276</td>
+		</tr>
+		<tr class="ga">
+			<td>Georgia</td>
+			<td>1,709</td>
+		</tr>
+		<tr class="nc">
+			<td>North Carolina</td>
+			<td>1,695</td>
+		</tr>
+		<tr class="la">
+			<td>Louisiana</td>
+			<td>1,427</td>
+		</tr>
+		<tr class="ma">
+			<td>Massachusetts</td>
+			<td>1,175</td>
+		</tr>
+		<tr class="tn">
+			<td>Tennessee</td>
+			<td>1,079</td>
+		</tr>
+		<tr class="al">
+			<td>Alabama</td>
+			<td>685</td>
+		</tr>
+		<tr class="pa">
+			<td>Pennsylvania</td>
+			<td>541</td>
+		</tr>
+		<tr class="oh">
+			<td>Ohio</td>
+			<td>519</td>
+		</tr>
+		<tr class="sc">
+			<td>South Carolina</td>
+			<td>509</td>
+		</tr>
+		<tr class="ct">
+			<td>Connecticut</td>
+			<td>468</td>
+		</tr>
+		<tr class="il">
+			<td>Illinois</td>
+			<td>468</td>
+		</tr>
+		<tr class="in">
+			<td>Indiana</td>
+			<td>383</td>
+		</tr>
+		<tr class="ky">
+			<td>Kentucky</td>
+			<td>359</td>
+		</tr>
+		<tr class="co">
+			<td>Colorado</td>
+			<td>350</td>
+		</tr>
+		<tr class="wa">
+			<td>Washington</td>
+			<td>332</td>
+		</tr>
+		<tr class="dc">
+			<td>District of Columbia</td>
+			<td>309</td>
+		</tr>
+		<tr class="ne">
+			<td>Nebraska</td>
+			<td>302</td>
+		</tr>
+		<tr class="ok">
+			<td>Oklahoma</td>
+			<td>296</td>
+		</tr>
+		<tr class="ks">
+			<td>Kansas</td>
+			<td>273</td>
+		</tr>
+		<tr class="mn">
+			<td>Minnesota</td>
+			<td>260</td>
+		</tr>
+		<tr class="ar">
+			<td>Arkansas</td>
+			<td>256</td>
+		</tr>
+		<tr class="ms">
+			<td>Mississippi</td>
+			<td>249</td>
+		</tr>
+		<tr class="az">
+			<td>Arizona</td>
+			<td>226</td>
+		</tr>
+		<tr class="ia">
+			<td>Iowa</td>
+			<td>208</td>
+		</tr>
+		<tr class="nv">
+			<td>Nevada</td>
+			<td>194</td>
+		</tr>
+		<tr class="mo">
+			<td>Missouri</td>
+			<td>180</td>
+		</tr>
+		<tr class="de">
+			<td>Delaware</td>
+			<td>171</td>
+		</tr>
+		<tr class="mi">
+			<td>Michigan</td>
+			<td>168</td>
+		</tr>
+		<tr class="ri">
+			<td>Rhode Island</td>
+			<td>166</td>
+		</tr>
+		<tr class="ut">
+			<td>Utah</td>
+			<td>106</td>
+		</tr>
+		<tr class="or">
+			<td>Oregon</td>
+			<td>103</td>
+		</tr>
+		<tr class="wi">
+			<td>Wisconsin</td>
+			<td>73</td>
+		</tr>
+		<tr class="sd">
+			<td>South Dakota</td>
+			<td>34</td>
+		</tr>
+		<tr class="nm">
+			<td>New Mexico</td>
+			<td>33</td>
+		</tr>
+		<tr class="nh">
+			<td>New Hampshire</td>
+			<td>30</td>
+		</tr>
+		<tr class="wv">
+			<td>West Virginia</td>
+			<td>26</td>
+		</tr>
+		<tr class="id">
+			<td>Idaho</td>
+			<td>18</td>
+		</tr>
+		<tr class="me">
+			<td>Maine</td>
+			<td>12</td>
+		</tr>
+		<tr class="hi">
+			<td>Hawaii</td>
+			<td>8</td>
+		</tr>
+		<tr class="wy">
+			<td>Wyoming</td>
+			<td>8</td>
+		</tr>
+		<tr class="nd">
+			<td>North Dakota</td>
+			<td>4</td>
+		</tr>
+		<tr class="ak">
+			<td>Alaska</td>
+			<td>3</td>
+		</tr>
+		<tr class="vt">
+			<td>Vermont</td>
+			<td>3</td>
+		</tr>
+		<tr class="mt">
+			<td>Montana</td>
+			<td>1</td>
+		</tr>
+		<tr class="other">
+			<td>Puerto Rico</td>
+			<td>1</td>
+		</tr>
+		<tr class="other">
+			<td>Virgin Islands</td>
+			<td>1</td>
+		</tr>
+		<tr class="total">
+			<td>Total</td>
+			<td>45,029</td>
+		</tr>
+	</table>
+
+	<table id="population">
+		<tr>
+			<th>Where Would They Be by Population?</th>
+		</tr>
+		<tr class = "ca">
+			<td>California</td>
+			<td>8,525</td>
+		</tr>
+		<tr class = "texas">
+			<td>Texas</td>
+			<td>6,546</td>
+		</tr>
+		<tr class = "ny">
+			<td>New York</td>
+			<td>3,950</td>
+		</tr>
+		<tr class="fl">
+			<td>Florida</td>
+			<td>3,748</td>
+		</tr>
+		<tr class="il">
+			<td>Illinois</td>
+			<td>2,817</td>
+		</tr>
+		<tr class="pa">
+			<td>Pennsylvania</td>
+			<td>2,532</td>
+		</tr>
+		<tr class="oh">
+			<td>Ohio</td>
+			<td>2,466</td>
+		</tr>
+		<tr class="ga">
+			<td>Georgia</td>
+			<td>2,315</td>
+		</tr>
+		<tr class="nc">
+			<td>North Carolina</td>
+			<td>2,126</td>
+		</tr>
+		<tr class="mi">
+			<td>Michigan</td>
+			<td>2,090</td>
+		</tr>
+		<tr class="nj">
+			<td>New Jersey</td>
+			<td>1,880</td>
+		</tr>
+		<tr class="va">
+			<td>Virginia</td>
+			<td>1,737</td>
+		</tr>
+		<tr class="az">
+			<td>Arizona</td>
+			<td>1,505</td>
+		</tr>
+		<tr class="wa">
+			<td>Washington</td>
+			<td>1,486</td>
+		</tr>
+		<tr class="in">
+			<td>Indiana</td>
+			<td>1,474</td>
+		</tr>
+		<tr class="tn">
+			<td>Tennessee</td>
+			<td>1,390</td>
+		</tr>
+		<tr class="mo">
+			<td>Missouri</td>
+			<td>1,299</td>
+		</tr>
+		<tr class="ma">
+			<td>Massachusetts</td>
+			<td>1,295</td>
+		</tr>
+		<tr class="md">
+			<td>Maryland</td>
+			<td>1,252</td>
+		</tr>
+		<tr class="wi">
+			<td>Wisconsin</td>
+			<td>1,218</td>
+		</tr>
+		<tr class="mn">
+			<td>Minnesota</td>
+			<td>1,190</td>
+		</tr>
+		<tr class="co">
+			<td>Colorado</td>
+			<td>1,152</td>
+		</tr>
+		<tr class="la">
+			<td>Louisiana</td>
+			<td>1,037</td>
+		</tr>
+		<tr class="al">
+			<td>Alabama</td>
+			<td>1,035</td>
+		</tr>
+		<tr class="sc">
+			<td>South Carolina</td>
+			<td>1,004</td>
+		</tr>
+		<tr class="ky">
+			<td>Kentucky</td>
+			<td>945</td>
+		</tr>
+		<tr class="ok">
+			<td>Oklahoma</td>
+			<td>881</td>
+		</tr>
+		<tr class="ut">
+			<td>Utah</td>
+			<td>834</td>
+		</tr>
+		<tr class="or">
+			<td>Oregon</td>
+			<td>797</td>
+		</tr>
+		<tr class="ct">
+			<td>Connecticut</td>
+			<td>729</td>
+		</tr>
+		<tr class="ms">
+			<td>Mississippi</td>
+			<td>688</td>
+		</tr>
+		<tr class="ia">
+			<td>Iowa</td>
+			<td>673</td>
+		</tr>
+		<tr class="ks">
+			<td>Kansas</td>
+			<td>673</td>
+		</tr>
+		<tr class="ar">
+			<td>Arkansas</td>
+			<td>661</td>
+		</tr>
+		<tr class="nv">
+			<td>Nevada</td>
+			<td>615</td>
+		</tr>
+		<tr class="nm">
+			<td>New Mexico</td>
+			<td>472</td>
+		</tr>
+		<tr class="ne">
+			<td>Nebraska</td>
+			<td>433</td>
+		</tr>
+		<tr class="id">
+			<td>Idaho</td>
+			<td>398</td>
+		</tr>
+		<tr class="wv">
+			<td>West Virginia</td>
+			<td>355</td>
+		</tr>
+		<tr class="hi">
+			<td>Hawaii</td>
+			<td>286</td>
+		</tr>
+		<tr class="nh">
+			<td>New Hampshire</td>
+			<td>252</td>
+		</tr>
+		<tr class="me">
+			<td>Maine</td>
+			<td>243</td>
+		</tr>
+		<tr class="mt">
+			<td>Montana</td>
+			<td>209</td>
+		</tr>
+		<tr class="ri">
+			<td>Rhode Island</td>
+			<td>200</td>
+		</tr>
+		<tr class="sd">
+			<td>South Dakota</td>
+			<td>193</td>
+		</tr>
+		<tr class="de">
+			<td>Delaware</td>
+			<td>190</td>
+		</tr>
+		<tr class="ak">
+			<td>Alaska</td>
+			<td>175</td>
+		</tr>
+		<tr class="nd">
+			<td>North Dakota</td>
+			<td>151</td>
+		</tr>
+		<tr class="wy">
+			<td>Wyoming</td>
+			<td>128</td>
+		</tr>
+		<tr class="vt">
+			<td>Vermont</td>
+			<td>114</td>
+		</tr>
+		<tr class="dc">
+			<td>District of Columbia</td>
+			<td>103</td>	
+		</tr>
+		<tr class="other">
+			<td>Other Terrorities</td>
+			<td>73</td>
+		</tr>
+		<tr>
+			<td><br></td>
+		</tr>
+		<tr class="total">
+			<td>Total</td>
+			<td>68,541</td>
+		</tr>
+	</table>
+
+	</div>
+
+
+<div class = "words">
+<p>By now, much of the fervor of the United States' unaccompanied child migrants has died down. Between January and September 2014, over 45,000 children who entered the United States alone have been transferred from detainment facilities to more permanent homes throughout the country, where they have lived, often with their families, while awaiting deportation proceedings. Many will ultimately be forced to return to their countries of origin, and will try to come to the United States again.</p>
+<p>But the United States is not the only country that has been faced with an influx of children migrating to its borders alone. As many as 100,000 unaccompanied minors are estimated to live in the European Union, many of whom with their entire families outside Europe.</p>
+<p>The countries have contended with these young migrants in a variety of ways. In France, a European country with a long history of immigration, children, including unaccompanied child migrants, are not legally allowed to be deported. They are also allowed to seek custody in the foster care system. Since France's child protection system is under the responsibility of the <i>departements</i>, or counties, that means that local governments must house, clothe, feed and educate thousands of unaccompanied minors. And last year, the country adopted a resolution that shuffled its unaccompanied child migrants to different counties based on population: The more young people live in a county, the more unaccompanied minors were sent there. Some activists have cried out against the new plan, but Marc Brzegowy, the head of the task force devoted to France's plan, shrugged it off. "Is it fair? Everything is relative," Brzegowy said. "What's fair is that we host them."</p>
+<p>So what would it look like if the United States used a system like France? Well, none of the 68,000 children who came to the United States this year could be deported. Further, they'd all be sent to different states based on how many young people already lived there. For example, Vermont, which has relatively few young people, would receive the fewest unaccompanied child migrants, who would be cared within the foster care system. California, which has the most young people - and people altogether - would receive the most.</p>
+<p>As one would suspect, a hypothetical change like this one would mean that almost every state receives more unaccompanied child migrants. It also means that some of the states would be ranked in the same order by number they received. For example, Florida receives the fourth-greatest number of child migrants currently; that doesn't change. In some ways, this isn't a surprise. Because most of the children who came alone to the United States this year were from Central America, this is in many ways a question of where Central Americans live - and the answer is partly that they live where everyone else lives. So there are a lot of people from Honduras, El Salvador and Guatemala in New York, Texas and Florida, and not a lot in, say, Montana.</p>
+<p>But there are some states that would shift greatly in the rankings. California, for example, is ranked lower than its population would suggest. Maryland is ranked much higher. And Washington, DC currently has about three times the number of unaccompanied minors than it would have otherwise.</p>
+<p>Is it better for states - or counties, in France's case - to share responsibility for the care of these children? Or is it better for children to be with the families that they've joined? Ultimately, it's unlikely these countries will swap systems; these are two countries with very different histories and connections to immigration and minors - France's unaccompanied minors, for example, don't come with plans to reunite with family members. But perhaps it is always interesting to see how other countries organize their worlds.</p>
+
+<p>Sources: <a href="http://www.cbp.gov/newsroom/stats/southwest-border-unaccompanied-children">Customs and Border Patrol</a>, <a href="http://www.acf.hhs.gov/programs/orr/programs/ucs/state-by-state-uc-placed-sponsors">Health and Human Services</a>, <a href="http://quickfacts.census.gov/qfd/download/DataSet.txt">Census</a></p>
+</div>
+
+</body>
+
+
+
+<script type="text/javascript">
+
+	d3.selectAll("tr").on("mouseover", function(){
+		var state = d3.select(this).attr("class")
+		d3.selectAll("." + state)
+			.classed("special", true)
+	});
+
+	d3.selectAll("tr").on("mouseout", function(){
+
+		d3.selectAll("tr")
+			.classed("special", false)
+	})
+
+
+
+</script>
+
+
+
+</html>
